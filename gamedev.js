@@ -10,7 +10,7 @@ var paddleWidth = 60;
 var paddleX = (canvas.width - paddleWidth) / 2;
 var rightPressed = false;
 var leftPressed = false;
-
+var score=0;
 document.addEventListener("keydown", keyDownHandler, false);
 document.addEventListener("keyup", keyUpHandler, false);
 
@@ -61,9 +61,10 @@ function draw() {
     else if (y + dy > canvas.height - ballRadius) {
         if (x > paddleX && x < paddleX + paddleWidth) {
             dy = -dy;
+       score+=1;
         }
         else {
-            alert("GAME OVER");
+            alert("⚠️ GAME OVER  "+"Your Score is"+" "+Score);
             document.location.reload();
             clearInterval(interval); 
         }
